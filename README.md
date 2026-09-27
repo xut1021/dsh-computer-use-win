@@ -15,11 +15,11 @@
 |---|---|---|
 | ![1](assets/screenshot-1.png) | ![2](assets/screenshot-2.png) | ![3](assets/screenshot-3.png) |
 
+## Relationship with upstream
+
+This repository is a fork of [Yu-tao-Li/dsh-computer-use-win](https://github.com/Yu-tao-Li/dsh-computer-use-win), currently synced to upstream 0.2.2 (`1a82674`). The fork exists to carry the patches for [Issue #8](https://github.com/Yu-tao-Li/dsh-computer-use-win/issues/8) (cancellation, process races, window enumeration); the patches currently live in [dsh-computer-use-status/patches/](https://github.com/xut1021/dsh-computer-use-status/tree/main/patches) and will be submitted upstream as PRs. Once upstream merges them, this fork will no longer be maintained separately.
+
 ## 特性
-
-## 与上游的关系
-
-
 
 - **文本优先的观察**——UIA 无障碍树三视图（`control`/`content`/`raw`）；按 name/automationId/类名/值找控件，不靠猜像素。元素 id 用 UIA RuntimeId（UI 刷新后仍稳定，过期报 `stale` 而非点错地方）。
 - **三级截图链**——`PrintWindow`（非前台窗口也能抓）→ **WGC**（`Windows.Graphics.Capture`，DirectComposition/被遮挡窗口）→ 屏幕区域兜底（带 `occludedPossible` 标记）。窗口裁剪 + 降采样 + `imageScale/origin` 坐标映射，PNG 30 分钟自动清理。
