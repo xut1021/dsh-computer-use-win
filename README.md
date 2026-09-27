@@ -2,12 +2,9 @@
 
 # dsh-computer-use-win
 
-[![version](https://img.shields.io/github/v/release/Yu-tao-Li/dsh-computer-use-win?label=version&color=blue)](https://github.com/Yu-tao-Li/dsh-computer-use-win/releases)
-[![CI](https://github.com/Yu-tao-Li/dsh-computer-use-win/actions/workflows/ci.yml/badge.svg)](https://github.com/Yu-tao-Li/dsh-computer-use-win/actions/workflows/ci.yml)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 ![platform](https://img.shields.io/badge/platform-Windows-0078D6)
-[![stars](https://img.shields.io/github/stars/Yu-tao-Li/dsh-computer-use-win?style=social)](https://github.com/Yu-tao-Li/dsh-computer-use-win)
-
+[![stars](https://img.shields.io/github/stars/xut1021/dsh-computer-use-win?style=social)](https://github.com/xut1021/dsh-computer-use-win)
 [![Awesome DSH Plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)
 
 **给 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 装上 Windows 电脑操控能力**——MCP stdio 服务器 + PowerShell/UIA 桌面引擎，22 个工具让 agent 能**看**（UIA 无障碍树、窗口裁剪截图、OCR 词框）也能**做**（鼠标、键盘、UIA 语义动作、窗口管理）真实的 Windows 桌面应用。
@@ -19,6 +16,10 @@
 | ![1](assets/screenshot-1.png) | ![2](assets/screenshot-2.png) | ![3](assets/screenshot-3.png) |
 
 ## 特性
+
+## 与上游的关系
+
+
 
 - **文本优先的观察**——UIA 无障碍树三视图（`control`/`content`/`raw`）；按 name/automationId/类名/值找控件，不靠猜像素。元素 id 用 UIA RuntimeId（UI 刷新后仍稳定，过期报 `stale` 而非点错地方）。
 - **三级截图链**——`PrintWindow`（非前台窗口也能抓）→ **WGC**（`Windows.Graphics.Capture`，DirectComposition/被遮挡窗口）→ 屏幕区域兜底（带 `occludedPossible` 标记）。窗口裁剪 + 降采样 + `imageScale/origin` 坐标映射，PNG 30 分钟自动清理。
